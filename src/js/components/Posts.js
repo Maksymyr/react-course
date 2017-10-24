@@ -1,15 +1,17 @@
 import React from 'react';
 
-import Post from '../components/Post';
+import Post from './Post';
+import AddPost from './AddPost';
 
 export default class Posts extends React.Component {
 
     render() {
         return (
             <section className="posts-container">
-                <div className="items">
-                    <Post data={ {title: 'react.'} } />
-                </div>
+                <AddPost func={this.props.func}/>
+                {this.props.posts.map((item, index) => <div key={index} className="items">
+                <Post data={item} del={this.props.del} index={index}/>
+                </div>)}
             </section>
         )
     }
