@@ -1,7 +1,7 @@
 $blue: #006ec5;
 $grey: #585858;
-$accent: rgb(243, 239, 24);
-$darkAccent: #191b17;
+$accent: whitesmoke;
+$darkAccent: rgb(223, 223, 223);
 
 * {
     margin: 0;
@@ -38,15 +38,32 @@ body {
     display: table;
     // padding-top: 30px;
 }
-
-h1 {
+.footer {
+    background-color: #8abe8b;
+    color: #191b17;
+    padding: 10px;
+    margin: 10px 0;
+}
+.fullpage-item {
+    height: 200px;
+}
+h1  {
     display: table;
     margin: auto;
     text-align: center;
     padding: 20px 50px;
-    background: #000;
-    color: #fff;
+    background: #8abe8b;
+    color:#191b17;
     border-radius: 0 0 7px 7px;
     margin-bottom: 35px;
+  }
+  .link {
+    color: #191b17;
+    border-radius: 0 0 7px 7px;
+    padding: 20px 30px;
+    // float: left;
+    a {
+        color: #191b17;
+    }
   }
   

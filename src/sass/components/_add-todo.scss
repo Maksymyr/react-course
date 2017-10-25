@@ -8,9 +8,9 @@
     margin: 10px 0;
     background-color: $darkAccent;
     input, textarea {
-        color: #fff;
+        color: #191b17;
         background-color: transparent;
-        border-bottom: solid 2px yellow;
+        border-bottom: solid 2px #aed3af;
         @extend .clean;     
     }
 
@@ -21,11 +21,11 @@
     
     button {
         margin-top: 10px;
-        background-color: yellow;
+        background-color: #aed3af;
         @extend .clean;
         &:active {
           background: #2a2c28;
-          color: #fff;  
+          color: #191b17;  
         }
     }
 }

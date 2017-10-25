@@ -2,12 +2,14 @@
     .item {
          margin: 10px 0;
          padding: 20px;
-         background-color: #fff;
+         background-color: rgb(223, 223, 223);
          position: relative;
+         color: black;
          &.completed {
-             background-color: #ccc;
+             background-color: rgb(223, 223, 223);
              h2 {
-                 text-decoration: line-through;      
+                 text-decoration: line-through; 
+                 text-decoration-line: bold; 
              }
              
              p {
@@ -20,7 +22,18 @@
              right: 10px;
              button {
                  padding: 4px;
+                 background-color: #aed3af;
              }
+        }
+        p {
+            span {
+            color: #191b17;
+            }          
+        }
+        h2 {
+            span {
+            color: #191b17;
+            }          
         }
     }
  }
