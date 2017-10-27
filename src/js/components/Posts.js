@@ -3,6 +3,8 @@ import React from 'react';
 import Post from '../components/Post';
 import AddPost from './AddPost';
 import Header from '../components/Header';
+import EditPost from '../components/EditPost';
+import Notify from '../components/Notify';
 
 
 import { addPost } from '../actions';
@@ -32,7 +34,16 @@ const mapDispatchToProps = dispatch => ( bindActionCreators({ addPost }, dispatc
 // а какие именно - мы определяем в функциях передаваемых внутрь функции connect.
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Posts extends React.Component {
-
+    constructor (props) {
+        super(props);
+        this.state={
+            index: undefined,
+            notify: false
+        }
+        this.getIndexForEdit = this.getIndexForEdit.bind(this);
+        this.saveEdit = this.saveEdit.bind(this);
+        this.taskCount = this.taskCount.bind(this);
+    }
     renderPosts() {
         if(this.props.posts) {
             return this.props.posts.map((item, index) => {
@@ -42,21 +53,49 @@ export default class Posts extends React.Component {
                 // Так-же, мы передаем свойство "key", оно необходимо ядру реакта для индетификации элементов которые
                 // созданы спомощью итерационных функций, в остальных случаях это делать нет необходимости.
                 return (
-                    <Post data={item} key={index} index={index} push={this.props.history.push} />
+                    <Post data={item} key={index} index={index} push={this.props.history.push} editID={this.getIndexForEdit} />
                 )
             })
         } else {
             return <p>Empty yet, or something was wrong.</p>
         }
     }
-
+    getIndexForEdit(editIndex) {
+      this.setState({index: editIndex})
+    } 
+    saveEdit(){
+        this.setState({index: undefined})
+    }
+    taskCount() {
+        this.setState({notify: true});
+        console.log(this.state.notify);
+        setTimeout( () =>
+            this.setState({notify: false}
+        ),1000)
+    }
     render() {
+        
         return (
             <section className="posts-container">
                 <Header />
-
+              
                 {/* Компоненту AddPost чего-то нехватает, выясните чего и решите проблему! */}
-                <AddPost />
+              
+                <AddPost count={this.taskCount} />   
+
+                {!this.props.posts[this.state.index] ? null : 
+                    <EditPost 
+                        key={this.state.index} 
+                        index={this.state.index} 
+                        save={this.saveEdit} 
+                        item={this.props.posts[this.state.index]}
+                    />
+                }
+             
+                 {this.state.notify ? 
+                       <Notify /> 
+                    : null
+                }                    
                 <div className="items">
                     {this.renderPosts()}
                 </div>

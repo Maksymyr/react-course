@@ -30,21 +30,13 @@ export default class MainLayout extends React.Component {
         this.setState({ posts: [ ...this.state.posts, post ] })
     }
 
-    handleDelete() {
-
-    }
-
-    handleUpdate() {
-
-    }
-
     render() {
         return (
             <div className="wrapper">
 
                 <Switch>
                     <Route exact path="/" component={Posts}/>
-                                        
+                    <Route path="/post-:id" component={PostView}/>             
                     <Route render={() => <div>Page Not Found</div>}/>
                 </Switch>
 

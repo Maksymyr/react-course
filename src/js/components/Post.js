@@ -14,7 +14,14 @@ String.prototype.lessThan = function (max) {
     return tmp;
 };
 
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {del, edit} from '../actions';
 
+const mapDispatchToProps = dispatch => 
+    bindActionCreators({del, edit}, dispatch)
+
+@connect(null, mapDispatchToProps)
 export default class Post extends React.Component {
 
     constructor(props) {
@@ -25,7 +32,9 @@ export default class Post extends React.Component {
         };
 
         this.handleShowMore = this.handleShowMore.bind(this);    
-        this.handleView = this.handleView.bind(this);    
+        this.handleView = this.handleView.bind(this);  
+        this.handleEdit = this.handleEdit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     
@@ -45,6 +54,12 @@ export default class Post extends React.Component {
     handleView() {
         this.props.push(`/post-${this.props.index}`)
     }
+    handleEdit() {
+        this.props.editID(this.props.index);
+    }
+    handleDelete() {
+        this.props.del(this.props.index);
+    }
 
     render() {
         return (
@@ -57,8 +72,8 @@ export default class Post extends React.Component {
                     </ul>
                     <div className="buttons">
                         <button onClick={this.handleShowMore}>{this.state.contentToggle ? "Show more" : "Show less"}</button>
-                        <button>Delete</button>
-                        <button>Edit</button>
+                        <button onClick={this.handleDelete}>Delete</button>
+                        <button onClick={this.handleEdit}>Edit</button>
                         <button onClick={this.handleView}>View</button>
                     </div>
             </article>

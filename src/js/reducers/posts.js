@@ -29,6 +29,10 @@ export default function posts(state = InitialState.posts, action) {
     switch(type) {
         case types.ADD_POST:
             return [...state, payload];
+        case types.DELETE_POST:
+            return state.filter((item, i) => i !== payload);
+        case types.EDIT_POST:
+            return state.map((item, i) => i == payload.index ? {...item, ...payload.data} : item);
         default:
             return state;
     }
