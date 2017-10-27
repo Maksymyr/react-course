@@ -59,8 +59,10 @@ h1  {
   }
   .link {
     color: #191b17;
-    border-radius: 0 0 7px 7px;
-    padding: 20px 30px;
+    border-radius: 7px;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #8abe8b;
     // float: left;
     a {
         color: #191b17;
