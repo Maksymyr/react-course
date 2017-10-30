@@ -9,6 +9,7 @@ import {createLogger} from 'redux-logger';
 // Получаем все собранные в один большой редьюсеры, которые мы должены передать в store при создании
 // чтобы store знала что ей делать после полученного с помощью функции dispatch события.
 import reducers from '../reducers';
+import middleware from './middleware';
 
 
 // Custom middleware !
@@ -22,7 +23,7 @@ const extendPostData = store => next => action => {
 // Middleware это прослойка между вызовом события и его
 // обработкой, middleware есть готовые и есть возможность
 // написать свой.
-const middleware = applyMiddleware(createLogger(), extendPostData);
+// const middleware = applyMiddleware(createLogger(), extendPostData);
 
 
 // Используя функцию createStore описаную в библиотеке
@@ -34,7 +35,7 @@ const middleware = applyMiddleware(createLogger(), extendPostData);
 //    combineReducers, это нужно для коректной работы store. (каждый reducer отвечает за какую-то частичку данных в store)
 //  - middleware это дополнительный функционал который сработает перед тем как action дойдет до reducer'a
 //    это своего рода прослойка между функцией dispatch и reducer'ом
-const store = createStore(reducers, middleware);
+const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(middleware));
 
 export default store;
 

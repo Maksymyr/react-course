@@ -2,7 +2,7 @@ import React from 'react';
 
 import Post from '../components/Post';
 import AddPost from './AddPost';
-import Header from '../components/Header';
+import Menu from '../components/Menu';
 
 
 import { addPost, updateContentToggler } from '../actions';
@@ -54,10 +54,10 @@ export default class Posts extends React.Component {
         console.log(this)
         return (
             <section className="posts-container">
-                <Header />
+                {/* <Header /> */}
 
-                <AddPost addPost={this.props.addPost} />
-                {/*<Menu/>!*/}
+                {/* <AddPost addPost={this.props.addPost} /> */}
+                {/* <Menu/> */}
                 <div className="items">
                     {this.renderPosts()}
                 </div>

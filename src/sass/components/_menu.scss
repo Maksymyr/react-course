@@ -1,38 +1,48 @@
-.menu-container {
-    //background-color: #fff;
-    height: 30px;
-  
-    .switch {
-      width: 30px;
-      height: 30px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      float: left;
-      margin-right: 30px;
-      transition: 0.05s;
-      &.close {
-        background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-close-128.png');
-      }
-      &.open {
-        background-image: url('https://www.shareicon.net/data/128x128/2015/09/24/106683_menu_512x512.png');
-      }
-      &:hover {
-        background-color: #fff;
-      }
-    }
-  
+.navigation {
+  margin-bottom: 6px;
+  // background-color: rgb(228, 207, 21);
+  display: table;
+  // padding: 6px;
+  width: 100%;
+  height: auto;
     ul {
       li {
-        display: inline-table;
-        margin-right: 30px;
-        line-height: 29px;
+        display: inline-block;
+        margin-right: 6px;
+        &::after {
+          content: "";
+          display: block;
+          clear: both;
+        }
+        &.right {
+          float: right;
+        }
+        input {
+          padding: 7px 13px;
+          width: 100%;
+          border: none;
+          border-bottom: 3px solid #f3ef18;
+          background-color: transparent;
+        }
+        input:focus {
+          border-color: #333;
+        }
         a {
+          padding: 10px 35px;
+          border-radius: 4px;    
+          background-color: $darkAccent;
+          color: #fff;    
           text-decoration: none;
           &:hover {
             text-decoration: underline;
           }
         }
+        &:after {
+          content: "";
+          display: block;
+          clear: both;
+        }
+        
       }
     }
-  
   }

@@ -1,7 +1,11 @@
 import React from 'react';
 
+import AddPost from '../components/AddPost';
+import Menu from '../components/Menu';
 import Posts from '../components/Posts';
 import PostView from '../components/PostView';
+import Header from '../components/Header';
+
 
 // Route - компонент принимающий два свойства:
 // 1. path - url
@@ -22,11 +26,12 @@ export default class MainLayout extends React.Component {
     render() {
         return (
             <div className="wrapper">
-                {/* <Menu/> */}
+                <Header/>
+                
                 <Switch>
                     <Route exact path="/" component={Posts}/>
                     <Route path="/post-:postId" component={PostView}/>
-
+                    <Route path="/add" component={AddPost}/>
                     <Route path="*" component={() => <div>Page Not Found</div>}/>
                 </Switch>
 
