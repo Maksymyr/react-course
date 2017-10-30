@@ -4,7 +4,7 @@
   "description": "first lesson",
   "main": "index.js",
   "scripts": {
-    "dev": "noedwebpackdev-server.js",
+    "dev": "node webpack-dev-server.js",
     "build": "webpack --config webpack.config.prod.js",
     "lint": "eslint ./src/js --ext .js"
   },

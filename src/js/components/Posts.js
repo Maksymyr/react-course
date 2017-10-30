@@ -7,29 +7,29 @@ export default class Posts extends React.Component {
 
     // lifecycle methods !
 
-    comopnentWillMount() {
-        console.log("Component Will Mount | Posts.js")
-    }
+    // comopnentWillMount() {
+    //     console.log("Component Will Mount | Posts.js")
+    // }
 
-    componentDidMount() {
-        console.log("Component Did Mount | Posts.js")
-    }
+    // componentDidMount() {
+    //     console.log("Component Did Mount | Posts.js")
+    // }
 
-    componentWillUpdate() {
-        console.log("Component Will Update | Posts.js");
-    };
+    // componentWillUpdate() {
+    //     console.log("Component Will Update | Posts.js");
+    // };
 
-    componentDidUpdate() {
-        console.log("Component Did Update | Posts.js");
-    };
+    // componentDidUpdate() {
+    //     console.log("Component Did Update | Posts.js");
+    // };
 
-    componentSillUnmount() {
-        console.log("componentWillUnmount | Posts.js");
-    }
+    // componentSillUnmount() {
+    //     console.log("componentWillUnmount | Posts.js");
+    // }
 
-    componentWillReceiveProps(nextProps) {
-        console.log("Component Will Receive Props | Posts.js", nextProps);
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     console.log("Component Will Receive Props | Posts.js", nextProps);
+    // }
 
     //lifecycle methods ends here ~~~
 
@@ -37,12 +37,8 @@ export default class Posts extends React.Component {
         return (
             <section className="posts-container">
                 <AddPost addPost={this.props.addPost} />
-                <div class="items">
-                    {this.props.posts.map(item => {
-                        return (
-                            <Post data=item />
-                        )
-                    } )}
+                <div className="items">
+                    {this.props.posts.map((item, index) => <Post key={index} data={item} />)}
                 </div>
             </section>
         )

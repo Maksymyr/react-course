@@ -8,7 +8,7 @@ String.prototype.lessThan = function (max) {
     return tmp;
 };
 
-class Post extends Component {
+export default class Post extends React.Component {
 
     state = {
         contentToggle: true
@@ -28,16 +28,16 @@ class Post extends Component {
 
     render() {
         return (
-            <article class={this.state.contentToggle ? "item" : "item active"}>
+            <article className={this.state.contentToggle ? "item" : "item active"}>
                 <h1>{this.props.data.title}</h1>
                 <p>{this.contentView(this.props.data.description)}</p>
-                <dl className="links">
-                    {(this.props.data.links) ? this.props.data.links.map((item, index) => <li class="link"><a href={ietm.link} target="_blank">{item.title}</a></li>) : null}
+                <ul className="links">
+                    {(this.props.data.links) ? this.props.data.links.map((item, index) => <li key={index} className="link"><a href={item.link} key={index} target="_blank">{item.title}</a></li>) : null}
                 </ul>
-                <button onclick={this.handleShowMore}>{this.state.contentToggle ? "Show more" : "Show less" }</button>
+                <button onClick={this.handleShowMore}>{this.state.contentToggle ? "Show more" : "Show less" }</button>
                 <button>Delete</button>
                 <button>Update</button>
-            <article>
+            </article>
         );
     }
 }

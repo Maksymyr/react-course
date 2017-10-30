@@ -6,57 +6,57 @@ import Posts from '../components/Posts';
 
 export default class MainLayout extends React.Component {
 
-    constructor() {
+    constructor(props) {
+        super(props);
         this.state = {
             posts: _posts
         };
 
-        this.handleAddPost = this.handleAddPost.bind();
+        this.handleAddPost = this.handleAddPost.bind(this);
     }
 
     handleAddPost(post) {
-        this.setState(posts: [ ...this.state.posts, post ])
+        this.setState({posts: [ ...this.state.posts, post ]})
     }
 
     // lifecycle methods !
 
-    componentWillMount() {
-        console.log("Component Will Mount | MainLayout.js");
-    }
+    // componentWillMount() {
+    //     console.log("Component Will Mount | MainLayout.js");
+    // }
 
-    componentDidMount() {
-        console.log("Component Did Mount | MainLayout.js");
-    }
+    // componentDidMount() {
+    //     console.log("Component Did Mount | MainLayout.js");
+    // }
 
-    componentWillUpdate() {
-        console.log("Component Will Update | MainLayout.js");
-    };
+    // componentWillUpdate() {
+    //     console.log("Component Will Update | MainLayout.js");
+    // };
 
-    shouldComponentUpdate() {
-        console.log("Should Component Update | MainLayout.js");
-        return true;
-    };
+    // shouldComponentUpdate() {
+    //     console.log("Should Component Update | MainLayout.js");
+    //     return true;
+    // };
 
-    componentDidUpdate() {
-        console.log("Component Did Update | MainLayout.js");
-    };
+    // componentDidUpdate() {
+    //     console.log("Component Did Update | MainLayout.js");
+    // };
 
-    componentWillUnmount() {
-        console.log("componentWillUnmount | MainLayout.js");
-    }
+    // componentWillUnmount() {
+    //     console.log("componentWillUnmount | MainLayout.js");
+    // }
 
     //lifecycle methods ends here ~~~
 
 
     render() {
         return (
-            <div class="wrapper">
+            <div className="wrapper">
                 <h1>React Lesson: 2 [ Lifecycle, state & props ]</h1>
-                <Header>
-
-                <Posts posts={this.sate.posts} addPost={this.handlePostAdd}>
+                <Header />
+                <Posts posts={this.state.posts} addPost={this.handleAddPost} /> 
             </div>
-        );
+        )
     }
 }
 
